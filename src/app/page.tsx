@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 
 
 export default function Home() {
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState<Blob | null>(null);
   const [response, setResponse] = useState("");
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
