@@ -7,12 +7,12 @@ import {  useState } from "react";
 
 
 export default function Home() {
-  const [image, setImage] = useState(null)
+  const [image, setImage] = useState<string | null>(null)
   const [prompt, setPrompt] = useState('')
   const [response, setResponse] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const handleCapture = (imageSrc) => {
+  const handleCapture = (imageSrc: string) => {
     setImage(imageSrc)
   }
 
@@ -49,7 +49,7 @@ export default function Home() {
       setResponse(data.text)
     } catch (error) {
       console.error('Error:', error)
-      setResponse('Произошла ошибка: ' + error.message)
+      setResponse('Произошла ошибка: ' + (error as Record<'message', string>).message)
     } finally {
       setLoading(false)
     }

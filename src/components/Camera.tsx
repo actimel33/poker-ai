@@ -1,8 +1,8 @@
 import { useRef, useState, useCallback, useEffect } from 'react'
 import Webcam from 'react-webcam'
 
-export default function Camera({ onCapture }: any) {
-  const webcamRef = useRef(null)
+export default function Camera({ onCapture }: {onCapture: (imageSrc: string) => void}) {
+  const webcamRef = useRef<Webcam | null>(null)
   const [facingMode, setFacingMode] = useState('environment') // Начать с задней камеры
   const [cameraPermission, setCameraPermission] = useState('pending')
   const [videoConstraints, setVideoConstraints] = useState({
