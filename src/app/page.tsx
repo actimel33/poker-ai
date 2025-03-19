@@ -26,7 +26,7 @@ export default function Home() {
       const context = canvasRef.current.getContext("2d");
       canvasRef.current.width = videoRef.current.videoWidth;
       canvasRef.current.height = videoRef.current.videoHeight;
-      context.drawImage(videoRef.current, 0, 0);
+      context?.drawImage(videoRef.current, 0, 0);
       canvasRef.current.toBlob((blob) => {
         setImage(blob);
       }, "image/png");
